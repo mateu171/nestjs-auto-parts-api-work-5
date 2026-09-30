@@ -1,0 +1,75 @@
+### GET - всі автозапчастини
+GET http://localhost:3000/auto-parts
+
+
+### GET - пошук
+GET http://localhost:3000/auto-parts?search=фільтр
+
+
+### GET - limit
+GET http://localhost:3000/auto-parts?limit=2
+
+
+### GET - пошук + limit
+GET http://localhost:3000/auto-parts?search=а&limit=2
+
+
+### GET - конкретна запчастина
+GET http://localhost:3000/auto-parts/1
+
+
+### GET - неіснуюча запчастина
+GET http://localhost:3000/auto-parts/999
+
+
+### POST - створення
+POST http://localhost:3000/auto-parts
+Content-Type: application/json
+
+{
+  "title": "Масляний фільтр",
+  "price": 900,
+  "oemCode": "HU816X",
+  "condition": "new",
+  "carBrand": "Volkswagen"
+}
+
+
+### POST - ще одна запчастина
+POST http://localhost:3000/auto-parts
+Content-Type: application/json
+
+{
+  "title": "Задній бампер",
+  "price": 5600,
+  "oemCode": "51128054195",
+  "condition": "used",
+  "carBrand": "BMW"
+}
+
+
+### PATCH - змінити ціну
+PATCH http://localhost:3000/auto-parts/1
+Content-Type: application/json
+
+{
+  "price": 2500
+}
+
+
+### PATCH - змінити декілька полів
+PATCH http://localhost:3000/auto-parts/2
+Content-Type: application/json
+
+{
+  "price": 750,
+  "condition": "used"
+}
+
+
+### DELETE
+DELETE http://localhost:3000/auto-parts/3
+
+
+### DELETE - неіснуюча запчастина
+DELETE http://localhost:3000/auto-parts/999
